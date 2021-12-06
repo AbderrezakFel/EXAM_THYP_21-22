@@ -30,7 +30,8 @@
            for (i in data) {
                 if(data[i]["@type"]=="o:Item"){
 
-                    html = `<option value="data[i]["dcterms:subject"][0]["@value"])">data[i]["dcterms:subject"][0]["@value"])</option>;
+                    html = `
+                    <option value="`+data[i]["dcterms:subject"][0]["@value"]+`">`+data[i]["dcterms:subject"][0]["@value"]+`</option>`;
 
                     d3.select(".categorie").append("p").html(html);
                 }
