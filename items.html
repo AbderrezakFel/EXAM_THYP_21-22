@@ -20,10 +20,11 @@
 
     <script src="https://d3js.org/d3.v4.min.js"></script>
     <script>
-      
-      d3.json("https://polemika.univ-paris8.fr/omk/api/items?item_set_id=2", function (data) {
-            
-            for (i in data) {
+        
+      getData("https://polemika.univ-paris8.fr/omk/api/items?item_set_id=2")
+        
+      showItems(data){
+           for (i in data) {
                 if(data[i]["@type"]=="o:Item"){
 
                     html = `
@@ -38,8 +39,14 @@
                     d3.select(".row").append("p").html(html);
                 }
             }
+      }
+      function getData(link){
+        d3.json(link, function(data){
+        showItems(data)
+        })
+    }
 
-        });
+        
   </script>
 
 
