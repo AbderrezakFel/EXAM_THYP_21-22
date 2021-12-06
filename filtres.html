@@ -13,10 +13,7 @@
        <center> <h1>les items de la collection 2</h1> 
            
            <select name="categorie" id="categorie" class="categorie">
-               <div class="container overflow-hidden">
-                   <div class="row">
-                    </div>
-               </div>
+               
             </select>
         
     </center>
@@ -30,10 +27,9 @@
            for (i in data) {
                 if(data[i]["@type"]=="o:Item"){
 
-                    html = `
-                    <option value="`+data[i]["dcterms:subject"][0]["@value"]+`">`+data[i]["dcterms:subject"][0]["@value"]+`</option>`;
+                    html = `<option value="`+data[i]["dcterms:subject"][0]["@value"]+`">`+data[i]["dcterms:subject"][0]["@value"]+`</option>`;
 
-                    d3.select(".row").append("p").html(html);
+                    d3.select(".categorie").append("option").html(html);
                 }
             }
       }
