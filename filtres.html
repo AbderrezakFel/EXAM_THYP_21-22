@@ -24,7 +24,7 @@
       getData("https://polemika.univ-paris8.fr/omk/api/items?item_set_id=2")
         
       function showItems(data){
-           for (i in data) {
+          for (i in data) {
                 if(data[i]["@type"]=="o:Item"){
 
                     html = `<option value="`+data[i]["dcterms:subject"][0]["@value"]+`">`+data[i]["dcterms:subject"][0]["@value"]+`</option>`;
@@ -33,6 +33,19 @@
                 }
             }
       }
+      }
+           
+      function showCate(data){
+          for (i in data) {
+                if(data[i]["@type"]=="o:Item"){
+
+                    html = `<option value="`+data[i]["dcterms:subject"][0]["@value"]+`">`+data[i]["dcterms:subject"][0]["@value"]+`</option>`;
+
+                    d3.select(".categorie").append("option").html(html);
+                }
+            }
+      }
+        
       function getData(lien){
         d3.json(lien, function(data){
         showItems(data)
